@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather Details</title>
+</head>
+<body class="weather-page">
+    <div class="container">
+        <% if (data && data.name && data.sys && data.sys.country) { %>
+            <h1>Weather in <%= data.name %>, <%= data.sys.country %></h1>
+            <p>Temperature: <%= data.main.temp %>°C</p>
+            <p>Humidity: <%= data.main.humidity %>%</p>
+            <p>Description: <%= data.weather[0].description %></p>
+        <% } else { %>
+            <p>Weather data not available.</p>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Select Country</title>
+</head>
+<body class="select-page">
+   
+    <div class="container">
+        <img class="sunsmile" src="images/sunsmile.JPG" alt="nothing makes sense"  height="200px" >
+        <h1>Select the Correct City</h1>
+        <form action="/select-country" method="POST">
+            <input type="hidden" name="city" value="<%= city %>">
+            <label for="country">Select Country:</label>
+            <select name="country" id="country" required>
+                <% cities.forEach(city => { %>
+                    <option value="<%= city.sys.country %>"><%= city.name %>, <%= city.sys.country %></option>
+                <% }); %>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
